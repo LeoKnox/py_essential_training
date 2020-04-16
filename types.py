@@ -1,8 +1,14 @@
+from decimal import *
+
+a = Decimal('.10')
+b = Decimal('.30')
+c = a + a + a - b
+
 x = None
 y = 7
 z = 7.0
 s = '7.0'
-b = True
+e = True
 
 t = 'seven'.capitalize()
 u = ''' 
