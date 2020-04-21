@@ -5,12 +5,18 @@ class Tree:
         self.info = info
     
     def delNode(self, info):
-        print('a')
-        if self.left == None:
-            return self
-        if self.left.info == info:
-            if self.left:
-                self.left = delNode(self, self.info)
+        if self== None:
+            return False
+        if self.info == info:
+            if self.left.info == info and self.right.info == None:
+                self = None
+                return True
+            elif self.left and self.right == None:
+                self = self.left
+                return True
+            elif self.left == None and self.right:
+                self = self.right
+                return True
 
             self.left = None
     
