@@ -12,16 +12,14 @@ class Tree:
         print('function')
 
     def printTree(self):
-        temp = self.head
-        if not(temp.left and temp.right):
-            print(temp.info)
-        else:
-            if temp.left:
-                temp = temp.left
-                self.printTree()
-            if temp.right:
-                temp = temp.right
-                self.printTree()
+        temp = self
+        if temp.head.left:
+            temp.head = temp.head.left
+            temp.printTree()
+        print(temp.head.info)
+        if temp.head.right:
+            temp = temp.head.right
+            self.printTree()
     
     def addNode(self, info):
         if self.head == None:
