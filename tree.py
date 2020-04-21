@@ -9,29 +9,30 @@ class Tree:
         self.head = None
 
     def printTree(self):
-        if self.head.left == None and self.head.right == None:
-            print ("-" + self.info)
-        else:
-            print('*')
-            if self.head:
-                print(self.head.left.info)
-                self.head.left.printTree()
-            elif self.head.right:
-                print('$')
-                self.right.printTree()
+        if self.head.left:
+            print('ll')
+            self.head.left.printTree()
+        print(self.head.info),
+        if self.head.right:
+            self.head.right.printTree()
     
     def addNode(self, info):
-        newNode = node(info)
-        temp = self.head
         if self.head == None:
-            self.head = newNode
-        elif info < temp.info:
-            if temp.left == None:
-                self.head.left == newNode
-            else:
-                temp = temp.left()
+            self.head = node(info)
+        temp = self.head
+        while temp.left or temp.right:
+            if info < temp.info:
+                print('left')
+                if temp.left == None:
+                    temp.left = node(info)
+                    return
+                else:
+                    temp = temp.left
+            
 
 t = Tree()
 t.addNode(6)
+t.addNode(3)
+t.addNode(1)
 t.printTree()
 n = ()
