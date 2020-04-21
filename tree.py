@@ -19,15 +19,26 @@ class Tree:
     def addNode(self, info):
         if self.head == None:
             self.head = node(info)
+            return
         temp = self.head
-        while temp.left or temp.right:
+        while temp:
             if info < temp.info:
                 print('left')
+                print (f'info {info} and {temp.info}')
                 if temp.left == None:
                     temp.left = node(info)
                     return
                 else:
+                    print('else')
                     temp = temp.left
+            else:
+                print ('right')
+                if temp.right == None:
+                    temp.right = node(info)
+                    return
+                else:
+                    print('else')
+                    temp = temp.right
             
 
 t = Tree()
