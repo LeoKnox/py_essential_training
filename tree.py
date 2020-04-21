@@ -7,14 +7,21 @@ class node:
 class Tree:
     def __init__(self):
         self.head = None
+    
+    def ii(self):
+        print('function')
 
     def printTree(self):
-        if self.head.left:
-            print('ll')
-            self.head.left.printTree()
-        print(self.head.info),
-        if self.head.right:
-            self.head.right.printTree()
+        temp = self.head
+        if not(temp.left and temp.right):
+            print(temp.info)
+        else:
+            if temp.left:
+                temp = temp.left
+                self.printTree()
+            if temp.right:
+                temp = temp.right
+                self.printTree()
     
     def addNode(self, info):
         if self.head == None:
@@ -23,21 +30,16 @@ class Tree:
         temp = self.head
         while temp:
             if info < temp.info:
-                print('left')
-                print (f'info {info} and {temp.info}')
                 if temp.left == None:
                     temp.left = node(info)
                     return
                 else:
-                    print('else')
                     temp = temp.left
             else:
-                print ('right')
                 if temp.right == None:
                     temp.right = node(info)
                     return
                 else:
-                    print('else')
                     temp = temp.right
             
 
