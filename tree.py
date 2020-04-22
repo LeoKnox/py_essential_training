@@ -1,49 +1,26 @@
-class node:
+class Tree:
     def __init__(self, info):
         self.info = info
         self.left = None
         self.right = None
-
-class Tree:
-    def __init__(self):
-        self.head = None
-    
-    def ii(self):
-        print('function')
-
-    def printTree(self):
-        temp = self
-        if temp.head.left:
-            temp.head = temp.head.left
-            temp.printTree()
-        print(temp.head.info)
-        if temp.head.right:
-            temp = temp.head.right
-            self.printTree()
     
     def addNode(self, info):
-        if self.head == None:
-            self.head = node(info)
-            return
-        temp = self.head
-        while temp:
-            if info < temp.info:
-                if temp.left == None:
-                    temp.left = node(info)
-                    return
-                else:
-                    temp = temp.left
+        if self == None:
+            self = Tree(info)
+        temp = self
+        if info < temp.info:
+            if temp.left:
+                temp = temp.left
+                temp.addNode(info)
             else:
-                if temp.right == None:
-                    temp.right = node(info)
-                    return
-                else:
-                    temp = temp.right
-            
+                temp.left = Tree(info)
+        if info < temp.info:
+            if temp.right:
+                temp = temp.right
+                temp.addNode(info)
+            else:
+                temp.right = Tree(info)
 
-t = Tree()
-t.addNode(6)
+t = Tree(5)
 t.addNode(3)
-t.addNode(1)
-t.printTree()
-n = ()
+print(t.left.info)
