@@ -4,6 +4,12 @@ class Tree:
         self.left = None
         self.right = None
     
+    def delNode(self, info):
+        temp = self
+        if temp.info == info:
+            print('found')
+            hold = temp
+    
     def printTree(self):
         temp = self
         if temp.left:
