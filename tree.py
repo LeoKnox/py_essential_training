@@ -31,4 +31,9 @@ class Tree:
 
 t = Tree(5)
 t.addNode(3)
+t.addNode(1)
+t.addNode(11)
+t.addNode(16)
+t.addNode(12)
+t.addNode(9)
 t.printTree()
