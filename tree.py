@@ -4,6 +4,14 @@ class Tree:
         self.left = None
         self.right = None
     
+    def printTree(self):
+        temp = self
+        if temp.left:
+            temp.left.printTree()
+        print(temp.info),
+        if temp.right:
+            temp.right.printTree()
+    
     def addNode(self, info):
         if self == None:
             self = Tree(info)
@@ -14,7 +22,7 @@ class Tree:
                 temp.addNode(info)
             else:
                 temp.left = Tree(info)
-        if info < temp.info:
+        else:
             if temp.right:
                 temp = temp.right
                 temp.addNode(info)
@@ -23,4 +31,4 @@ class Tree:
 
 t = Tree(5)
 t.addNode(3)
-print(t.left.info)
+t.printTree()
